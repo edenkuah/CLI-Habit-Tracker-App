@@ -97,15 +97,31 @@ def view_all():
         completion_rate = (days_completed / days_since_created * 100) if days_since_created > 0 else 0
 
         print(f"-------------------------------")
-        print(f"Habit: {habit['name']}")
+        print(f"Habit: {habit['name']} / ID: {habit['id']}")
         print(f"Streak: {count} days")
         print(f"Completion rate: {round(completion_rate)}%")
         print("-------------------------------")
 
-def delete_habit():
-    print("-" * 70 + "\n"
-        "Delete habit function is currently unavailable. Please stay tuned for updates."
-        "\n" + "-" * 70)
+def user_deletion_fetch():
+    user_deletion_input = str(input("Enter the habit you would like to delete (Enter the ID): "))
+    while True:
+        if user_deletion_input.strip() == "":
+            print("ID cannot be empty. Please try again.")
+            user_deletion_input = str(input("Enter the habit you would like to delete (Enter the ID): "))
+        elif user_deletion_input.isalpha():
+            print("ID must be a number. Please try again.")
+        else:
+            return user_deletion_input
+        
+#Real function for deletion
+def habit_deletion(habit_input):
+    all_habits = load_habits()
+    for habit in all_habits:
+        if habit["id"] == int(habit_input):
+            all_habits.remove(habit)
+            save_data(all_habits)
+            print(f"Successful deletion of ID: {habit_input} habit: {habit['name']}")
+
 
 
 while True:
@@ -123,7 +139,8 @@ while True:
     elif option == "3" or option.lower() == "view" or option.lower() == "view all":
         view_all()
     elif option == "4" or option.lower() == "delete" or option.lower() == "delete contact":
-        delete_habit()
+        user_habit_input = user_deletion_fetch()
+        habit_deletion(user_habit_input)
     elif option == "5" or option.lower() == "exit":
         break
     else:

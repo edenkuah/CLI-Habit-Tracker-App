@@ -6,6 +6,7 @@ A command-line habit tracking application built in Python that allows users to c
 
 ## Features
 - Add new habits
+- Delete existing habits
 - Mark habits as completed
 - View streaks and completion rates
 - Persistent storage using JSON
@@ -24,7 +25,12 @@ I built this to practice Python fundamentals such as file handling, data structu
 4. Your habits and progress will be saved in `habits.json` for future reference.
 
 ## Future Improvements
-- Implement the delete habit functionality
 - Add a feature to edit existing habits
 - Enhance the user interface for better usability
 - Implement a feature to view habits by specific time frames (e.g., weekly, monthly)
+
+Known Issues
+- Deleting a habit does not prompt for confirmation
+- The application does not handle the case where a user tries to mark a non-existent habit as completed
+- ID handling for habits is currently based on the order of creation, which may lead to issues if habits are deleted and new ones are added.
+
