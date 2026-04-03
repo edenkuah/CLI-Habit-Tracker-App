@@ -28,9 +28,8 @@ I built this to practice Python fundamentals such as file handling, data structu
 - Add a feature to edit existing habits
 - Enhance the user interface for better usability
 - Implement a feature to view habits by specific time frames (e.g., weekly, monthly)
+- Delete habits with confirmation prompts to prevent accidental deletions
 
-Known Issues
-- Deleting a habit does not prompt for confirmation
-- The application does not handle the case where a user tries to mark a non-existent habit as completed
-- ID handling for habits is currently based on the order of creation, which may lead to issues if habits are deleted and new ones are added.
+## Contributing
+Contributions are welcome! Please fork the repository and create a pull request with your changes.
 
